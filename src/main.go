@@ -3,10 +3,21 @@ package main
 import (
   "github.com/gin-gonic/gin"
   "net/http"
+  "log"
+	"runtime"
+  "bytes"
 )
 
+var (
+	buf    bytes.Buffer
+	logger *log.Logger = log.New(&buf, "log: ", log.Lshortfile)
+)
 
 func main() {
+    logger.Println("Application starts.")
+    // User all cpu cores
+    runtime.GOMAXPROCS(runtime.NumCPU())
+
     router := gin.Default()
 
       router.GET("/user/:name", func(c *gin.Context) {
@@ -22,7 +33,7 @@ func main() {
         message := name + " is " + action
         c.String(http.StatusOK, message)
     })
-    
+
     // PORT environment variable was defined.
     router.Run(":80") // for a hard coded port
 }

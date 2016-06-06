@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+- docker build -t earvin/gin-container .
+- docker images -a
