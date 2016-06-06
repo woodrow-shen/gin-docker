@@ -1,5 +1,9 @@
 # Gin Container
 
+[]()
+
+[![Build Status](https://travis-ci.org/EarvinKayonga/gin-container.svg?branch=master)](https://travis-ci.org/EarvinKayonga/gin-container) 
+
 Golang Gin running in an Alpine based Image.
 
 Docker image hosted on The  [Docker Hub](https://hub.docker.com/r/earvin/gin-container/)
@@ -8,11 +12,11 @@ Docker image hosted on The  [Docker Hub](https://hub.docker.com/r/earvin/gin-con
 
 Use this Dockerfile to build our container
 ```
-docker build -t earvin/gin-container .; 
+docker build -t earvin/gin-container .;
 docker run -p 8080:80  -v $(pwd):/go/src/gin-container --name gin-instance earvin/gin-container run src/main.go;
 ```
 
-OR 
+OR
 Directly pull from the Docker Hub
 
 ```
