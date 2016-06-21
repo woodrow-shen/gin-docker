@@ -1,4 +1,4 @@
-FROM        golang:1.7beta1-alpine
+FROM        golang:1.7beta2-alpine
 MAINTAINER  Earvin Kayonga <earvin@earvinkayonga.com>
 
 ENV	    PORT	80
