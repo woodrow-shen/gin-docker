@@ -9,15 +9,6 @@ RUN	    apk add --update git bash build-base
 WORKDIR     /go/src/gin-container
 ADD         . /go/src/gin-container
 
-RUN         go get github.com/tools/godep
-RUN	    go get github.com/gin-gonic/gin
-RUN	    go install github.com/tools/godep
-RUN	    go install github.com/gin-gonic/gin
-
-
-# Restore godep dependencies
-#RUN godep restore
-
 EXPOSE 80
 ENTRYPOINT	["/usr/local/go/bin/go"]
 CMD 		["run", "src/main.go"]
