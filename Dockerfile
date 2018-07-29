@@ -1,7 +1,7 @@
-FROM        golang:1.7beta2-alpine
-MAINTAINER  Earvin Kayonga <earvin@earvinkayonga.com>
+FROM        golang:1.10-alpine
+MAINTAINER  Woodrow Shen <woodrow.shen@gmail.com>
 
-ENV	    PORT	80
+ENV	    PORT 80
 	
 RUN	    apk add --update git bash build-base
  

@@ -1,16 +1,16 @@
 package main
 
 import (
-  "github.com/gin-gonic/gin"
-  "net/http"
-  "log"
-	"runtime"
-  "bytes"
+    "github.com/gin-gonic/gin"
+    "net/http"
+    "log"
+    "runtime"
+    "bytes"
 )
 
 var (
-	buf    bytes.Buffer
-	logger *log.Logger = log.New(&buf, "log: ", log.Lshortfile)
+    buf    bytes.Buffer
+    logger *log.Logger = log.New(&buf, "log: ", log.Lshortfile)
 )
 
 func main() {
@@ -23,6 +23,7 @@ func main() {
     router.GET("/user/:name", func(c *gin.Context) {
         name := c.Param("name")
         c.String(http.StatusOK, "Hello %s", name)
+        log.Printf("/user/:name route invoked. name=%q\n", name);
     })
 
     // However, this one will match /user/john/ and also /user/john/send
@@ -32,6 +33,7 @@ func main() {
         action := c.Param("action")
         message := name + " is " + action
         c.String(http.StatusOK, message)
+        log.Printf("/user/:name/*action route invoked. name=%q action=%q\n", name, action);
     })
 
     // PORT environment variable was defined.
